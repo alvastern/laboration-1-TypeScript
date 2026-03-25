@@ -14,4 +14,19 @@ function createCourse(courseName: string, courseCode: string, courseProg: string
     };
 }
 
+let name = document.getElementById("course-name") as HTMLInputElement;
+let code = document.getElementById("course-code") as HTMLInputElement;
+let prog = document.getElementById("course-prog") as HTMLInputElement;
+let url = document.getElementById("course-url") as HTMLInputElement;
+let button = document.getElementById("add-button") as HTMLButtonElement;
+let form = document.getElementById("course-form") as HTMLFormElement;
+
 let courses: Courses[] = [];
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let course = createCourse(name.value, code.value, prog.value, url.value);
+    courses.push(course);
+    form.reset();
+});
