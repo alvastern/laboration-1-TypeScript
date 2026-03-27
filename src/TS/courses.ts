@@ -83,7 +83,8 @@ function displayCourses(courses: Courses[]) {
 
     // Loopar igenom arrayen och visar varje kurs
     courses.forEach((course, index) => {
-        let list = document.createElement("li")
+        let list = document.createElement("li");
+        list.classList.add("course-item");
         let link = document.createElement ("a");
 
         link.href = course.courseUrl;
@@ -93,6 +94,7 @@ function displayCourses(courses: Courses[]) {
         
         // Skapar en knapp för att radera en kurs
         let deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
         deleteButton.textContent = "Radera kurs";
 
         // Eventlyssnare på radera-knappen som tar bort kursen
@@ -103,9 +105,9 @@ function displayCourses(courses: Courses[]) {
         })
 
         // Lägger till de nya elementen i DOM
-        list.appendChild(deleteButton);
         courseList.appendChild(list);
         list.appendChild(link);
+        list.appendChild(deleteButton);
     });
 };
 

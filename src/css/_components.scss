@@ -1,0 +1,32 @@
+#add-button {
+    width: 10rem;
+    padding: 0.75rem 1rem;
+    background-color: darkolivegreen;
+    margin-bottom: 3vh;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 1rem;
+    border-radius: 20px;
+}
+
+#add-button:hover {
+    background-color: #88976d;
+    cursor: pointer;
+}
+
+.delete-button {
+    width: 10rem;
+    padding: 0.75rem 1rem;
+    background-color: #c9302c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 1rem;
+    border-radius: 20px;
+}
+
+.delete-button:hover {
+    background-color: #d9534f;
+    cursor: pointer;
+}
