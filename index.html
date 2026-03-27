@@ -7,28 +7,30 @@
   </head>
 
   <body>
+    <section>
     <h1>Här kan du dokumentera dina kurser</h1>
 
-    <section>
-      <h2>Lägg till en kurs:</h2>
-        <form id="course-form">
-          <label for="course-name">Kursnamn:</label>
-          <input type="text" id="course-name" name="course-name" required />
+      <article>
+        <h2>Lägg till en kurs:</h2>
+          <form id="course-form">
+            <label for="course-name">Kursnamn:</label>
+            <input type="text" id="course-name" name="course-name" required />
 
-          <label for="course-code">Kurskod:</label>
-          <input type="text" id="course-code" name="course-code" required />
+            <label for="course-code">Kurskod:</label>
+            <input type="text" id="course-code" name="course-code" required />
 
-          <label for="course-prog">Progression:</label>
-          <input type="text" id="course-prog" name="course-prog" required>
+            <label for="course-prog">Progression:</label>
+            <input type="text" id="course-prog" name="course-prog" required>
 
-          <label for="course-url">URL:</label>
-          <input type="url" id="course-url" name="course-url" required>
+            <label for="course-url">URL:</label>
+            <input type="url" id="course-url" name="course-url" required>
 
-          <button type="submit" id="add-button">Lägg till kurs</button>
-        </form>
+            <button type="submit" id="add-button">Lägg till kurs</button>
+          </form>
 
-        <h2>Dina kurser:</h2>
-        <ul id="course-list"></ul>
+          <h2>Dina kurser:</h2>
+          <ul id="course-list"></ul>
+      </article>
     </section>
     <script type="module" src="src/TS/courses.ts"></script>
   </body>

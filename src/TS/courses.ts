@@ -1,3 +1,5 @@
+import "../css/main.scss"; 
+
 type Progression = "A" | "B" | "C"; // Skapar en egen typ för progressioner
 
 // Interface för att definiera en kurs, datatyper definieras
@@ -86,7 +88,7 @@ function displayCourses(courses: Courses[]) {
 
         link.href = course.courseUrl;
         link.textContent = "Kursplan";
-        link.target = "blank";
+        link.target = "_blank";
         list.textContent = `${course.courseName} (${course.courseCode}) - ${course.courseProg}`;
         
         // Skapar en knapp för att radera en kurs
