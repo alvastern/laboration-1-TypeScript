@@ -3,20 +3,20 @@ import "../css/main.scss";
 type Progression = "A" | "B" | "C"; // Skapar en egen typ för progressioner
 
 // Interface för att definiera en kurs, datatyper definieras
-interface Courses {
-    courseName: string;
-    courseCode: string;
-    courseUrl: string;
-    courseProg: Progression;
+interface CourseInfo {
+    name: string;
+    code: string;
+    url: string;
+    prog: Progression;
 }
 
 // Funktion för att skapa en kurs - datatyper definieras
-function createCourse(courseName: string, courseCode: string, courseProg: Progression, courseUrl: string): Courses {
+function createCourse(courseName: string, courseCode: string, courseProg: Progression, courseUrl: string): CourseInfo {
     return {
-        courseName,
-        courseCode,
-        courseProg,
-        courseUrl
+        name: courseName,
+        code: courseCode,
+        url: courseUrl,
+        prog: courseProg
     };
 }
 
@@ -28,12 +28,12 @@ let url = document.getElementById("course-url") as HTMLInputElement;
 let form = document.getElementById("course-form") as HTMLFormElement;
 
 // Alla kurser sparas i denna array
-let courses: Courses[] = [];
+let courses: CourseInfo[] = [];
 
 // Kursers som lagts till ska sparas i local storage, samt inte försvinna när sidan laddas om
 let savedCourses = localStorage.getItem("courses");
 if (savedCourses) {
-    courses = JSON.parse(savedCourses);
+    courses = JSON.parse(savedCourses) as CourseInfo[];
 };
 
 // När formuläret skickas skapas en kurs och läggs till i arrayen
@@ -59,7 +59,7 @@ form.addEventListener("submit", (e) => {
     }
 
     // Kurskoden måste vara unik
-    if (courses.some(c => c.courseCode === codeValue)) {
+    if (courses.some(c => c.code === codeValue)) {
         alert("En kurs med denna kurskod finns redan.");
         return;
     }
@@ -78,7 +78,7 @@ form.addEventListener("submit", (e) => {
 let courseList = document.getElementById("course-list") as HTMLUListElement;
 
 // Funktion för att visa alla kurser i listan, samt radera en kurs
-function displayCourses(courses: Courses[]) {
+function displayCourses(courses: CourseInfo[]) {
     courseList.innerHTML = "";
 
     // Loopar igenom arrayen och visar varje kurs
@@ -87,10 +87,10 @@ function displayCourses(courses: Courses[]) {
         list.classList.add("course-item");
         let link = document.createElement ("a");
 
-        link.href = course.courseUrl;
+        link.href = course.url;
         link.textContent = "Kursplan";
         link.target = "_blank";
-        list.textContent = `${course.courseName} (${course.courseCode}) - ${course.courseProg}`;
+        list.textContent = `${course.name} (${course.code}) - ${course.prog}`;
         
         // Skapar en knapp för att radera en kurs
         let deleteButton = document.createElement("button");
